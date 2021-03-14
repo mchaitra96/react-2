@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Digit root</title>
+	<meta charset="UTF-8" />
+</head>
+
+<body>
+	<div id="value"></div>
+
+	<script>
+       
+
+
+const numIslands = (num) => {
+ 
+   if(num < 10){
+      return num;
+   }
+   const lastDigit = num % 10;
+   const remainingNum = Math.floor(num / 10);
+   return numIslands(lastDigit + numIslands(remainingNum));
+
+};
+
+
+
+const num=17;
+
+const totalIslands = numIslands(num);
+console.log(
+  `There ${totalIslands > 1 ? "are" : "is"} ${totalIslands} island${
+    totalIslands > 1 ? "s" : ""
+  }`
+);
+
+document.getElementById("value").innerHTML = `There ${
+  totalIslands > 1 ? "are" : "is"
+} ${totalIslands} digit_root${totalIslands > 1 ? "s" : ""}`;
+
+    </script>
+</body>
+
+</html>
